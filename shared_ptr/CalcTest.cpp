@@ -30,6 +30,6 @@ namespace so{
     *rst.add = src.a + src.b;
     *rst.mux = src.a * src.b;
 
-    return (struct result)rst;
+    return rst;
   }
 } // namespace so

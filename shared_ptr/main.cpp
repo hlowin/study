@@ -5,6 +5,12 @@
 
 int main(int argc, char* argv[])
 {
+#if DEBUG_
+  argc = 3;
+  argv[1] = '5';
+  argv[2] = '2';
+#endif
+
   if (argc != 3) {
     std::cout << "Input parameters 2 number." << std::endl;
     return -1;
@@ -22,4 +28,6 @@ int main(int argc, char* argv[])
   ct_process->SetSource(ct_src);
 
   ct_rst = ct_process->Calc();
+
+  return 0;
 }
