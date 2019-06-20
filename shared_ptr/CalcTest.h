@@ -6,22 +6,22 @@ namespace so {
   
   public:
    struct source {
-     unsigned int a;
-     unsigned int b;
+     int a;
+     int b;
    };
 
    struct result {
-     std::shared_ptr<unsigned int> add;
-     std::shared_ptr<unsigned int> mux;
+     std::shared_ptr<int> add;
+     std::shared_ptr<int> mux;
    };
 
-   CalcTest() {}
+   CalcTest();
 
-   ~CalcTest() {}
+   ~CalcTest();
 
    void SetSource(source& src);
-   void GetSource(source* src);
-   result Calc();
+   void GetSource(source& src);
+   std::shared_ptr<CalcTest::result> Calc();
 
   private:
    source src_;

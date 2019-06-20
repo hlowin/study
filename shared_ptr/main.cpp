@@ -11,23 +11,28 @@ int main(int argc, char* argv[])
   argv[2] = '2';
 #endif
 
-  if (argc != 3) {
-    std::cout << "Input parameters 2 number." << std::endl;
-    return -1;
-  }
+  // if (argc != 3) {
+  //   std::cout << "Input parameters 2 number." << std::endl;
+  //   return -1;
+  // }
 
   std::unique_ptr<so::CalcTest> ct_process = std::make_unique<so::CalcTest>();
 
   so::CalcTest::source ct_src;
 
-  so::CalcTest::result ct_rst;
-
   ct_src.a = atoi(argv[1]);
   ct_src.b = atoi(argv[2]);
 
+  // ct_src.a = 5;
+  // ct_src.b = 2;
+
   ct_process->SetSource(ct_src);
 
-  ct_rst = ct_process->Calc();
+  auto ct_rst = ct_process->Calc();
+
+  std::cout << "Result:" << std::endl;
+  std::cout << "add = " << *ct_rst->add << std::endl;
+  std::cout << "mux = " << *ct_rst->mux << std::endl;
 
   return 0;
 }
