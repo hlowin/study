@@ -1,5 +1,6 @@
 #include <iostream>
 #include <pcl/io/pcd_io.h>
+#include <pcl/io/ply_io.h>
 #include <pcl/point_types.h>
 #include <pcl/filters/statistical_outlier_removal.h>
 
@@ -27,12 +28,12 @@ main (int argc, char** argv)
   std::cerr << "Cloud after filtering: " << std::endl;
   std::cerr << *cloud_filtered << std::endl;
 
-  pcl::PCDWriter writer;
-  writer.write<pcl::PointXYZ> ("table_scene_lms400_inliers.pcd", *cloud_filtered, false);
+  pcl::PLYWriter writer;
+  writer.write<pcl::PointXYZ> ("table_scene_lms400_inliers.ply", *cloud_filtered, false);
 
   sor.setNegative (true);
   sor.filter (*cloud_filtered);
-  writer.write<pcl::PointXYZ> ("table_scene_lms400_outliers.pcd", *cloud_filtered, false);
+  writer.write<pcl::PointXYZ> ("table_scene_lms400_outliers.ply", *cloud_filtered, false);
 
   return (0);
 }
