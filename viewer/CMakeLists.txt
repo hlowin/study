@@ -7,28 +7,31 @@ project(${TARGET_NAME})
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "limited configs" FORCE)
 
 add_executable(${TARGET_NAME}
-							 ${TARGET_NAME}.cpp
-							 ../3rdparty/imgui/imgui.cpp
-							 ../3rdparty/imgui/imgui_draw.cpp
-							 ../3rdparty/imgui/imgui_widgets.cpp
-							 ../3rdparty/imgui/examples/imgui_impl_glfw.cpp
-							 ../3rdparty/imgui/examples/imgui_impl_opengl3.cpp
-							 ../3rdparty/imgui/examples/libs/gl3w/GL/gl3w.c
-							)
+               ${TARGET_NAME}.cpp
+               common.cpp
+               ../3rdparty/imgui/imgui.cpp
+               ../3rdparty/imgui/imgui_draw.cpp
+               ../3rdparty/imgui/imgui_widgets.cpp
+               ../3rdparty/imgui/examples/imgui_impl_glfw.cpp
+               ../3rdparty/imgui/examples/imgui_impl_opengl3.cpp
+               ../3rdparty/imgui/examples/libs/gl3w/GL/gl3w.c
+              )
+
+target_compile_features(${TARGET_NAME} PRIVATE cxx_std_11)
 
 target_include_directories(${TARGET_NAME}
-													 PRIVATE
-													 ../3rdparty/imgui/
-													 ../3rdparty/imgui/examples/
-													 ../3rdparty/imgui/examples/libs/gl3w/
-													)
+                           PRIVATE
+                           ../3rdparty/imgui/
+                           ../3rdparty/imgui/examples/
+                           ../3rdparty/imgui/examples/libs/gl3w/
+                          )
 
 target_link_libraries(${TARGET_NAME}
-											-lGL
-											-lGLU
-											-lglfw3
-											-lX11
-											-ldl
-											-lpthread
-											-lm
-										 )
+                      -lGL
+                      -lGLU
+                      -lglfw3
+                      -lX11
+                      -ldl
+                      -lpthread
+                      -lm
+                     )
