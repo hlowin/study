@@ -1,5 +1,6 @@
 #include <iostream>
 #include <mutex>
+#include <memory>
 
 namespace so {
   class CalcTest {
