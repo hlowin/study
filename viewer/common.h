@@ -10,10 +10,10 @@
 namespace so {
 class common {
  public:
-	common();
-	~common();
-	void shutdown();
+  common();
+  ~common();
+  void shutdown();
 
-	GLFWwindow* window;
+  GLFWwindow* window;
 };
-} // namespace so
+}  // namespace so

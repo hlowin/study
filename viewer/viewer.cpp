@@ -1,7 +1,6 @@
 #include "viewer.h"
 
 int main() {
-
   std::shared_ptr<so::common> common = std::make_shared<so::common>();
 
   while (!glfwWindowShouldClose(common->window)) {
