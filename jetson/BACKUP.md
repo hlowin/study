@@ -37,3 +37,10 @@
   `bs=4M`は1度に4MB書き込むことを意味。
 
   `count=6250`は6250 * 4MB = 25000MB = 25GBサイズのイメージを書き込むことを意味。
+
+  - 例
+
+    ```bash:bash
+    $ sudo dd bs=4M if=/dev/sda of=jetcard_image.img status=progress count=8000
+    $ sudo dd bs=4M if=/dev/sda status=progress count=8000  | gzip -c > jetcard_image.img.gz
+    ```
