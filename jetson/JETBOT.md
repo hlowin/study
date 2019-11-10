@@ -39,3 +39,17 @@
   ```bash
   $ jupytor notebook
   ```
+
+...
+
+## 上記のようなややこしい手順を踏んでいますが...
+
+もしかしたら、下記手順で大丈夫かもしれない。
+
+0. OSイメージをインストール。
+
+1. [jetcard](https://github.com/NVIDIA-AI-IOT/jetcard)記載のインストール方法を実行。
+
+2. [jetbot](https://github.com/NVIDIA-AI-IOT/jetbot)記載のインストール方法を実行。
+
+3. [installLibrealsense](https://github.com/jetsonhacksnano/installLibrealsense)記載のインストール方法を実行。
