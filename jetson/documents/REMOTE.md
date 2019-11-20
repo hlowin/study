@@ -83,6 +83,7 @@ Jetson上で下記コマンドを実行したところVNC接続できること�
   ```
 
   - 下記通りに修正。
+    - 修正しなくてもよいかも。
 
     ```sh
     # test -x /etc/X11/Xsession && exec /etc/X11/Xsession
@@ -93,6 +94,7 @@ Jetson上で下記コマンドを実行したところVNC接続できること�
 4. サービスをリスタート
 
   ```bash
+  $ sudo systemctl enable xrdp
   $ sudo service xrdp restart
   ```
 
