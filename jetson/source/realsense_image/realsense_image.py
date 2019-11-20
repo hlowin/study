@@ -1,27 +1,7 @@
-# import SocketServer
-import socketserver as SocketServer
-import socket
-import sys
-
 import pyrealsense2 as rs
 
 import numpy as np
 import cv2
-
-class TCPHandler(SocketServer.BaseRequestHandler):
-    capture=''
-    # リクエストを受け取るたびに呼ばれる関数
-    def handle(self):
-        # HELLOを受け取ったらJPEG圧縮したカメラ画像を文字列にして送信
-        self.data = self.request.recv(1024).strip()
-        ret, frame=capture.read()
-        jpegstring=cv2.cv.EncodeImage('.jpeg',cv2.cv.fromarray(frame)).tostring()
-        self.request.send(jpegstring)
-
-
-#環境に応じて変更
-HOST = '192.168.100.101'
-PORT = 12345  
 
 # Configure depth and color streams
 pipeline = rs.pipeline()
