@@ -161,12 +161,18 @@ Jetson上で下記コマンドを実行したところVNC接続できること�
   $ sudo service xrdp restart
   ```
 
+- `xsession manager`で切り替え
+
+  ```bash
+  $ sudo update-alternatives --config x-session-manager
+  ```
+
 - ホストPC(Ubuntu)からの接続方法
 
   - `remmina`を起動
 
     ```
-    $ remina
+    $ sudo remina
     ```
   
   - サーバへJetsonのIPアドレスを入力
