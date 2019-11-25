@@ -32,3 +32,12 @@
   $ cd JEP/script
   $ sh install_opencv4.1.1_Jetson.sh opencv
   ```
+
+3. python3からの実行確認、バージョン確認
+
+  ```bash
+  $ python3
+  >>> import cv2
+  >>> cv2.__version__
+  '4.1.1'
+  ```
