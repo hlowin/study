@@ -68,13 +68,76 @@ Jetson上で下記コマンドを実行したところVNC接続できること�
   $ sudo apt install xrdp
   ```
 
+  - この時点で実はリモート接続できた…
+
 2. Xfceのインストール
 
   ```bash
   $ sudo apt install xfce4
   $ cd ~/
-  $ echo xfce4-session >~/.xsession
+  $ echo xfce4-session > ~/.xsession
   ```
+
+  - xfce4から戻す場合
+
+    - `.xsession`を開く
+
+      ```bash
+      $ ~/.xsession
+      ```
+
+    - 下記を削除
+
+      ```
+      xfce4-session
+      ```
+
+    - XRDPを再インストール
+
+      ```bash
+      $ sudo apt remove --purge xrdp
+      $ sudo apt install xrdp
+      ```
+
+    - (正直戻す方法がわからない…XRDPはUnity未対応らしいがなぜできた…)
+
+    - .xsessionrcの設定
+
+      ```
+      #!/bin/bash
+  
+      # Copyright (c) 2019, NVIDIA CORPORATION. All rights reserved.
+      #
+      # Redistribution and use in source and binary forms, with or without
+      # modification, are permitted provided that the following conditions
+      # are met:
+      #  * Redistributions of source code must retain the above copyright
+      #    notice, this list of conditions and the following disclaimer.
+      #  * Redistributions in binary form must reproduce the above copyright
+      #    notice, this list of conditions and the following disclaimer in the
+      #    documentation and/or other materials provided with the distribution.
+      #  * Neither the name of NVIDIA CORPORATION nor the names of its
+      #    contributors may be used to endorse or promote products derived
+      #    from this software without specific prior written permission.
+      #
+      # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY
+      # EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+      # IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+      # PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+      # CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+      # EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+      # PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+      # PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
+      # OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+      # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+      # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+      logo_path="/usr/share/backgrounds/NVIDIA_Login_Logo.png"
+      # Set NVIDIA Logo after user login to desktop
+      if [ -x "/usr/bin/xsetbg" ] && [ -r "${logo_path}" ]; then
+              xsetbg -center "${logo_path}" -border black
+      fi
+      ```
 
 3. XRDPの設定ファイルを修正
 
@@ -98,12 +161,18 @@ Jetson上で下記コマンドを実行したところVNC接続できること�
   $ sudo service xrdp restart
   ```
 
+- `xsession manager`で切り替え
+
+  ```bash
+  $ sudo update-alternatives --config x-session-manager
+  ```
+
 - ホストPC(Ubuntu)からの接続方法
 
   - `remmina`を起動
 
     ```
-    $ remina
+    $ sudo remina
     ```
   
   - サーバへJetsonのIPアドレスを入力
