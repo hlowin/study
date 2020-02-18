@@ -4,6 +4,8 @@ set(PROJECT_NAME ConvertImage)
 
 project(${PROJECT_NAME})
 
+set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT ${PROJECT_NAME})
+
 find_package(CUDA REQUIRED)
 if(CUDA_FOUND)
     message("Cuda version: " ${CUDA_VERSION})
