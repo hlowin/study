@@ -1,0 +1,21 @@
+<form><input type="button" value="バグコード実行" onClick="message()"></form>
+<span id="bugcode"></span>
+
+<script>
+    function message() {
+        const reserv_name_list = ["田中", "鈴木", "山田"];  // 予約者名のリスト
+        const adder_name_list = ["坂田"];                  // 追加者名のリスト
+        document.getElementById("bugcode").innerHTML = GetBugCode(reserv_name_list, adder_name_list);
+    }
+
+    // 応募部分 -STA
+    // first_listの要素数とsecond_listの要素数の合計を文字列で返したい
+    function GetBugCode(first_list, second_list) {
+        // var first_list_length = first_list.length.toString()
+        // var second_list_length = second_list.length.toString()
+        // return first_list_length + second_list_length
+
+        return String(first_list.length + second_list.length)
+    }
+    // 応募部分 -END
+</script>

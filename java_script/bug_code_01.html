@@ -1,0 +1,22 @@
+<form><input type="button" value="バグコード実行" onClick="message()"></form>
+<span id="chincode"></span>
+
+<script>
+    function message() {
+        document.getElementById("chincode").innerHTML = GetBugCode();
+    }
+
+    // 応募部分 -STA
+    function GetBugCode() {
+        const reserv_name_list = ["田中", "鈴木", "山田"];  // 予約者名のリスト
+        const adder_name_list = ["坂田"];                  // 追加者名のリスト
+
+        const total_name_list = reserv_name_list;  // 最終的な参加者のリスト
+        for (const adder_name of adder_name_list) {
+            total_name_list.push(adder_name);
+        }
+
+        return reserv_name_list;  // 参加者名のリストを返す
+    }
+    // 応募部分 -END
+</script>
